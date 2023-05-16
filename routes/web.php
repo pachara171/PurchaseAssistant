@@ -18,6 +18,7 @@ Route::get('/', [AuthController::class, 'loginPage'])->name('signin');
 Route::post('/', [AuthController::class, 'checkLogin'])->name('checkLogin');
 Route::get('/signup', [AuthController::class, 'registerPage'])->name('signup');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('/register', [AuthController::class, 'userRegis'])->name('register');
 
 Route::middleware(['auth.login'])->group(function() {
     Route::get('/home', [AuthController::class, 'index']);

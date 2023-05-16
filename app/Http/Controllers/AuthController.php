@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -40,5 +42,22 @@ class AuthController extends Controller
 
     public function registerPage() {
         return view('login.signup');
+    }
+
+    public function userRegis(Request $request) {
+        $account = new User();
+        $account->name = $request->name;
+        $account->lastName = $request->lastname;
+        $account->studentID = $request->stdID;
+        $account->email = $request->email;
+        $account->password = Hash::make($request->password);
+        $account->birthdate = $request->birthdate;
+        $account->tel = $request->tel;
+        $account->save();
+
+        return redirect('/');
+        
+
+        
     }
 }
