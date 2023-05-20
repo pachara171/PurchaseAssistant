@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +22,11 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('/register', [AuthController::class, 'userRegis'])->name('register');
 
 Route::middleware(['auth.login'])->group(function() {
-    Route::get('/home', [AuthController::class, 'index']);
+    Route::get('/home', [AuthController::class, 'index'])->name('requester');
     Route::get('/test', function () {
         return view('responder.index');
-    });
+    })->name('responder');
+
+    Route::resource('post', PostController::class);
     
 });

@@ -6,8 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body style="background-color: #FFF6EA">
+  @yield('alert');
     <nav class="navbar navbar-expand-lg navbar-light bg-warning sticky-top">
         <div class="container-fluid">
             <div class="w-5 col-1 text-center">
@@ -36,7 +38,8 @@
                   <li><a class="dropdown-item" href="#">บัญชี</a></li>
                   <li><a class="dropdown-item" href="{{ route('logout') }}">ออกจากระบบ</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">เปลี่ยนสิทธิ์</a></li>
+                  <li><a class="dropdown-item" href="{{ route('responder') }}">เปลี่ยนสิทธิ์ผู้รับฝาก</a></li>
+                  <li><a class="dropdown-item" href="{{ route('requester') }}">เปลี่ยนสิทธิ์ผู้ฝาก</a></li>
                 </ul>
               </li>
             </ul>
